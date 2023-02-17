@@ -6,7 +6,7 @@ export type OrderStyleProps = {
 
 export const Container = styled.View`
   width: 100%;
-  height: 94px;
+  height: 100%;
   flex-direction: row;
   overflow: hidden;
   margin-bottom: 16px;
@@ -14,11 +14,10 @@ export const Container = styled.View`
 
 export const Content = styled.View`
   flex: 1;
-  height: 94px;
-  padding: 0 15px;
+  height: 100%;
+  padding: 0px 16px;
   justify-content: center;
-  background-color: ${({ theme }) => theme.COLORS.WHITE};
-  border-radius: 10px;
+  background-color: #202024;
 `;
 
 export const Header = styled.View`
@@ -26,14 +25,14 @@ export const Header = styled.View`
 `;
 
 export const Status = styled.View<OrderStyleProps>`
-  width: 10px;
-  height: 94px;
-  background-color: ${({ theme, status }) => status === 'open' ? theme.COLORS.SECONDARY : theme.COLORS.PRIMARY};
+  width: 4px;
+  height: 100%;
+  background-color: ${({ theme, status }) => status === 'open' ? theme.COLORS.OPEN : theme.COLORS.CLOSED};
 `;
 
 export const Title = styled.Text`
   flex: 1;
-  font-size: 18px;
+  font-size: 16px;
   font-family: ${({ theme }) => theme.FONTS.TITLE};
   color: ${({ theme }) => theme.COLORS.TEXT};
   margin-bottom: 18px;

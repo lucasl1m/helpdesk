@@ -14,9 +14,3 @@ export const Title = styled.Text`
   font-family: ${({ theme }) => theme.FONTS.TITLE};
   color: ${({ theme }) => theme.COLORS.TEXT};
 `;
-
-export const SubTitle = styled.Text`
-  font-size: 13px;
-  font-family: ${({ theme }) => theme.FONTS.TEXT};
-  color: ${({ theme }) => theme.COLORS.SUBTEXT};
-`;

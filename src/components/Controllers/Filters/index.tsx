@@ -6,11 +6,10 @@ import { Container, Title, Options } from './styles';
 
 type Props = {
   onFilter: (status: string) => void;
+  status: string;
 }
 
-export function Filters({ onFilter }: Props) {
-  const theme = useTheme();
-
+export function Filters({ onFilter, status }: Props) {
   return (
     <Container>
       <Title>Filtre pelo status do chamado</Title>
@@ -18,13 +17,13 @@ export function Filters({ onFilter }: Props) {
       <Options>
         <Filter
           title="Abertos"
-          backgroundColor={theme.COLORS.SECONDARY}
+          isSelected={ status === 'open' }
           onPress={() => onFilter('open')}
         />
 
         <Filter
           title="Encerrados"
-          backgroundColor={theme.COLORS.PRIMARY}
+          isSelected={ status === 'closed' }
           onPress={() => onFilter('closed')}
         />
       </Options>

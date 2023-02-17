@@ -8,12 +8,14 @@ export const Container = styled(RectButton)`
   justify-content: center;
   align-items: center;
   background-color: ${({ theme }) => theme.COLORS.PRIMARY};
+
+  margin-top: 32px;
 `;
 
 export const Title = styled.Text`
   font-size: 14px;
   color: ${({ theme }) => theme.COLORS.WHITE};
-  font-family: ${({ theme }) => theme.FONTS.TEXT};
+  font-family: ${({ theme }) => theme.FONTS.TITLE};
 `;
 
 export const Load = styled.ActivityIndicator.attrs(({ theme }) => ({

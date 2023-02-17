@@ -7,5 +7,6 @@ export const Container = styled(RectButton)`
   justify-content: center;
   align-items: center;
   border-radius: 12px;
-  background-color: ${({ theme }) => theme.COLORS.PRIMARY};
+  background-color: #202024;
+  border: 1px solid #323238;
 `;

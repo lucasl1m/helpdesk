@@ -4,18 +4,10 @@
     "strict": true,
     "baseUrl": "./",
     "paths": {
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@screens/*": [
-        "./src/screens/*"
-      ],
-      "@assets/*": [
-        "./src/assets/*"
-      ],
-      "@hooks/*": [
-        "./src/hooks/*"
-      ],
+      "@components/*": ["./src/components/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@hooks/*": ["./src/hooks/*"],
     }
-  },
+  }
 }

@@ -10,10 +10,11 @@ export const Container = styled(TouchableOpacity) <FilterProps>`
   background-color: ${({ backgroundColor }) => backgroundColor};
   align-items: center;
   padding: 10px;
+  border-radius: 8px;
 `;
 
 export const Title = styled.Text`
   font-size: 14px;
   color: ${({ theme }) => theme.COLORS.WHITE};
-  font-family: ${({ theme }) => theme.FONTS.TEXT};
+  font-family: ${({ theme }) => theme.FONTS.TITLE};
 `;

@@ -1,6 +1,11 @@
 import styled from 'styled-components/native';
 
-export const Form = styled.View``;
+export const Form = styled.View`
+  flex: 1;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 24px;
+`;
 
 export const Title = styled.Text`
   font-size: 32px;
@@ -10,9 +15,18 @@ export const Title = styled.Text`
   color: ${({ theme }) => theme.COLORS.TEXT};
 `;
 
-export const Footer = styled.View`    
-  flex-direction: row;
-  justify-content: space-between;
+export const Footer = styled.View`  
+  display: flex;  
+  flex-direction: column;
   align-items: center; 
-  margin-top: 50px; 
+  justify-content: center;
+  margin-top: 24px;
+`;
+
+export const Text = styled.Text`
+  font-size: 14px;
+  font-family: ${({ theme }) => theme.FONTS.TEXT};
+  color: ${({ theme }) => theme.COLORS.SUBTEXT};
+
+  margin-bottom: 8px;
 `;

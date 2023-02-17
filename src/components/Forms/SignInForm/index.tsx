@@ -3,11 +3,12 @@ import { useNavigation } from "@react-navigation/native";
 
 import auth from "@react-native-firebase/auth";
 
-import { FooterButton } from "@components/Controllers/FooterButton";
+
 import { Button } from "@components/Controllers/Button";
 import { Input } from "@components/Controllers/Input";
-import { Form, Title, Footer } from "./styles";
-import { Alert } from "react-native";
+import { Form, Title, Footer, Text } from "./styles";
+import { Alert, View } from "react-native";
+import { LinkButton } from "@components/Controllers/LinkButton";
 
 export function SignInForm() {
   const [email, setEmail] = useState("");
@@ -51,7 +52,7 @@ export function SignInForm() {
       })
       .catch((error) => {
         setIsLoading(false);
-        
+
         if (error.code === "auth/invalid-email") {
           Alert.alert("Redefinir senha", "E-mail inválido");
         }
@@ -71,19 +72,26 @@ export function SignInForm() {
     <Form>
       <Title>Entrar</Title>
       <Input placeholder="E-mail" onChangeText={setEmail} />
-      <Input placeholder="Senha" secureTextEntry onChangeText={setPassword} />
+      <View  
+        style={{
+          flexDirection: 'column',
+          alignItems: 'flex-end',
+          width: '100%',
+        }}
+      >
+        <Input placeholder="Senha" secureTextEntry onChangeText={setPassword} />
+        <LinkButton
+          title="Esqueceu sua senha ?"
+          onPress={handleForgotPassword}
+        />
+      </View>
       <Button title="Entrar" onPress={handleSignIn} isLoading={isLoading} />
 
       <Footer>
-        <FooterButton
+        <Text>Não tem uma conta?</Text>
+        <LinkButton
           title="Criar conta"
-          icon="person-add"
           onPress={() => navigation.navigate("register")}
-        />
-        <FooterButton
-          title="Esqueci senha"
-          icon="email"
-          onPress={handleForgotPassword}
         />
       </Footer>
     </Form>

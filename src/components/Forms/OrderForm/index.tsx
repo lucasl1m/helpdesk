@@ -32,6 +32,8 @@ export function OrderForm() {
         console.error(error);
       })
       .finally(() => {
+        setPatrimony("");
+        setDescription("");
         setIsLoading(false);
       });
   }

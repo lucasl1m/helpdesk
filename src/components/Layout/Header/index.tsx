@@ -3,7 +3,7 @@ import React from 'react';
 import auth from '@react-native-firebase/auth';
 
 import { LogoutButton } from '@components/Controllers/LogoutButton';
-import { Container, Greeting, Title, SubTitle } from './styles';
+import { Container, Greeting, Title } from './styles';
 
 export function Header() {
   function handleSignOut() { 
@@ -14,7 +14,6 @@ export function Header() {
     <Container>
       <Greeting>
         <Title>HelpDesk</Title>
-        <SubTitle>Conte conosco, estamos aqui para ajudar.</SubTitle>
       </Greeting>
 
       <LogoutButton onPress={handleSignOut} />
