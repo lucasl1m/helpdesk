@@ -5,17 +5,18 @@ export type OrderStyleProps = {
 };
 
 export const Container = styled.View`
+  display: flex;
   width: 100%;
-  height: 100%;
   flex-direction: row;
   overflow: hidden;
-  margin-bottom: 16px;
+
+  margin-bottom: 8px;
 `;
 
 export const Content = styled.View`
   flex: 1;
   height: 100%;
-  padding: 0px 16px;
+  padding: 8px 16px;
   justify-content: center;
   background-color: #202024;
 `;

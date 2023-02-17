@@ -9,7 +9,7 @@ import { Order, OrderProps } from "@components/Controllers/Order";
 import { Container, Header, Title, Counter } from "./styles";
 
 export function Orders() {
-  const [status, setStatus] = useState("open");
+  const [status, setStatus] = useState('all');
   const [isLoading, setIsLoading] = useState(false);
   const [orders, setOrders] = useState<OrderProps[]>([]);
 
@@ -18,19 +18,21 @@ export function Orders() {
 
     const subscriber = firestone()
       .collection("orders")
-      .where("status", "==", status)
+      // Se o status for "all", não filtra por status
+      .where("status", status === "all" ? "!=" : "==", status)
       .onSnapshot((querySnapshot) => {
-        const data = querySnapshot.docs.map((doc) => {
-          return {
-            id: doc.id,
-            ...doc.data(),
-          };
-        }) as OrderProps[];
+        const list: OrderProps[] = [];
 
-        setOrders(data);
+        querySnapshot.forEach((documentSnapshot) => {
+          list.push({
+            ...documentSnapshot.data(),
+            id: documentSnapshot.id,
+          } as OrderProps);
+        });
+
+        setOrders(list);
         setIsLoading(false);
       });
-    return () => subscriber();
   }, [status]);
 
   return (
@@ -38,7 +40,9 @@ export function Orders() {
       <Filters onFilter={setStatus} status={status}/>
 
       <Header>
-        <Title>Chamados {status === "open" ? "aberto" : "encerrado"}</Title>
+        <Title>
+          {status === "all" ? "Todos os chamados" : status === "open" ? "Chamados abertos" : "Chamados encerrados"}
+        </Title>
         <Counter>{orders.length}</Counter>
       </Header>
 

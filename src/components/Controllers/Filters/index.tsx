@@ -16,6 +16,12 @@ export function Filters({ onFilter, status }: Props) {
 
       <Options>
         <Filter
+          title="Todos"
+          isSelected={ status === 'all' }
+          onPress={() => onFilter('all')}
+        />
+
+        <Filter
           title="Abertos"
           isSelected={ status === 'open' }
           onPress={() => onFilter('open')}
